@@ -3,13 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import * as Actions from '../actions/App.actions'
 import { isEmpty } from 'ramda';
-import whyDidYouUpdate from 'why-did-you-update'
 class UserList extends Component {
 
   render () {
-    if (process.env.NODE_ENV !== 'production') {
-      whyDidYouUpdate(React);
-    }
     const { data, gender, nat, search } = this.props
     return (
       <div className="container">
