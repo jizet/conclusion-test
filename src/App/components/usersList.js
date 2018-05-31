@@ -3,8 +3,27 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import * as Actions from '../actions/App.actions'
 import { isEmpty } from 'ramda';
-class UserList extends Component {
+import styled from 'styled-components'
 
+const UserContainer = styled.div`
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: center;
+  justify-items: space-between;
+`
+
+const InformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;`
+
+const Name = styled.div`
+  display: flex;
+`
+
+const Details = styled.div`
+  display: flex;
+`
+class UserList extends Component {
   render () {
     const { data, gender, nat, search } = this.props
     return (
@@ -16,10 +35,13 @@ class UserList extends Component {
       .filter((item) => isEmpty(search) ? true : `${item.name.first} ${item.name.last}`.includes(search))
       .map((item, index) => {
         return (
-          <div className="article" key={index}>
-            <h4>{item.name.title} {item.name.first} {item.name.last}</h4>
-            <p>{item.nat} {item.gender}</p>
-          </div>
+          <UserContainer className="article" key={index}>
+            <img src={item.picture.medium} />
+            <InformationContainer>
+              <Name>{item.name.title} {item.name.first} {item.name.last}</Name>
+              <Details>{item.nat} {item.gender}</Details>
+            </InformationContainer>
+          </UserContainer>
         );
       })}
       {/* Map over articles  */}

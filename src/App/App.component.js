@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as Actions from './actions/App.actions';
 import UserManagement from './components/userManagement';
 import UserList from './components/usersList'
-import whyDidYouUpdate from 'why-did-you-update'
 import './App.style.css';
 
 class App extends Component {
