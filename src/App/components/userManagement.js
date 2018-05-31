@@ -52,14 +52,14 @@ class UserManagement extends Component {
   
         <div className="row">
           <div className="col-4 offset-2 dropdown">
-            <select className="form-control form-control-sm" onChange={this.filterGender}>
+            <select className="form-control form-control-sm" value={this.props.gender} onChange={this.filterGender}>
               <option value=''>No gender</option>
               <option value='male'>Male</option>
               <option value='female'>Female</option>
             </select>
           </div>
           <div className="col-4 dropdown">
-            <select className="form-control form-control-sm" onChange={this.filterNat}>
+            <select className="form-control form-control-sm" value={this.props.nat} onChange={this.filterNat}>
             <option>No nationality</option>
             {
               nationalities.map((nationality, index) => {
